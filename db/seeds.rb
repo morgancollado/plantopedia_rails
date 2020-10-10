@@ -8,10 +8,12 @@
 
 require 'httparty'
 
+TREFLE_TOKEN = ENV["KEY"]
+
 r = HTTParty.get(
   'https://trefle.io/api/v1/plants',
   query: {
-    "token": "TlNXU3pPRXFKTllkQ2I0L0M3TmgwQT09"
+    "token": TREFLE_TOKEN
   }
 )
 
