@@ -20,6 +20,8 @@ gem 'jbuilder', '~> 2.7'
 
  gem 'httparty'
 
+ gem 'faker'
+
  gem 'dotenv-rails', groups: [:development, :test]
 
 # Use Active Storage variant

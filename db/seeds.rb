@@ -7,18 +7,31 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'httparty'
+require 'faker'
+require 'byebug'
 
-TREFLE_TOKEN = ENV["KEY"]
+# TREFLE_TOKEN = ENV["KEY"]
 
-r = HTTParty.get(
-  'https://trefle.io/api/v1/plants',
-  query: {
-    "token": TREFLE_TOKEN
-  }
-)
+# r = HTTParty.get(
+#   'https://trefle.io/api/v1/plants',
+#   query: {
+#     "token": TREFLE_TOKEN
+#   }
+# )
 
 
-r.parsed_response["data"].each do |plant_hash|
+# r.parsed_response["data"].each do |plant_hash|
     
-    Plant.create(common_name: plant_hash["common_name"], scientific_name: plant_hash["scientific_name"])
-end 
+#     Plant.create(common_name: plant_hash["common_name"], scientific_name: plant_hash["scientific_name"])
+# end 
+
+20.times do
+    User.create(
+
+        name: Faker::Name.name,
+        username: Faker::Games::Overwatch.unique.hero,
+        password_digest: Faker::String.random
+    )
+
+
+end

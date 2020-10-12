@@ -1,0 +1,2 @@
+class PlantLogsController < ApplicationController
+end
