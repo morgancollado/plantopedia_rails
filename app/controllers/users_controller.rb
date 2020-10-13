@@ -16,17 +16,25 @@ class UsersController < ApplicationController
     end 
 
     def show 
-        if current_user != set_user
-            redirect_to current_user
+        if logged_in? 
+            set_user
+        else 
+            redirect_to login_path
         end 
     end 
 
     def edit
-
+        if logged_in?
+            set_user
+        else 
+            redirect_to login_path
+        end 
     end 
 
     def update 
-
+        set_user
+        @user.update(user_params)
+        redirect_to @user
     end 
 
     private 
