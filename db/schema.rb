@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 2020_10_12_192140) do
   create_table "plant_logs", force: :cascade do |t|
     t.integer "user_id"
     t.integer "plant_id"
-    t.datetime "log_date"
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

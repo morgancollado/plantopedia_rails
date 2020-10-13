@@ -3,7 +3,6 @@ class CreatePlantLogs < ActiveRecord::Migration[6.0]
     create_table :plant_logs do |t|
       t.integer :user_id
       t.integer :plant_id
-      t.datetime :log_date
       t.string :content
 
       t.timestamps
