@@ -16,13 +16,27 @@ class UsersController < ApplicationController
     end 
 
     def show 
-        @user = User.find(params[:id])
+        if current_user != set_user
+            redirect_to current_user
+        end 
+    end 
+
+    def edit
+
+    end 
+
+    def update 
+
     end 
 
     private 
 
+    def set_user
+        @user = User.find(params[:id])
+
+    end 
+
     def user_params
         params.require(:user).permit(:name, :username, :password)
-
     end 
 end
