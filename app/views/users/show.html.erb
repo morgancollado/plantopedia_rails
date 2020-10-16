@@ -1,1 +1,10 @@
-hi <%= @user.username %>
+<h1>Welcome <%= @user.username %></h1>
+
+
+<h3>Owned Plants</h3>
+<% @user.owned_plants.each do |p| %>
+    <ul>
+    <li><%=link_to p.plant.common_name, plant_path(p) %></li>
+    </ul>
+
+<% end %>

@@ -38,8 +38,8 @@ end
 
 20.times do 
     OwnedPlant.create(
-        user_id: Faker::Number.between(from: 1, to: 20),
-        plant_id: Faker::Number.between(from: 1, to: 20),
+        user_id: User.all.sample.id,
+        plant_id: Plant.all.sample.id,
         seed_date: Faker::Date.backward(days: 10),
         death_date: Faker::Date.forward(days: 10),
     )
@@ -48,8 +48,8 @@ end
 20.times do 
     PlantLog.create(
         user_id:
-        Faker::Number.between(from: 1, to: 20),
-        plant_id: Faker::Number.between(from: 1, to: 20),
+        User.all.sample.id,
+        plant_id: Plant.all.sample.id,
         content: Faker::Hipster.paragraph
 
     )

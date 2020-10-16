@@ -1,0 +1,29 @@
+
+<% if @owned_plant.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@owned_plant.errors.count, "error") %>
+      prohibited you from saving:
+    </h2>
+
+    <ul>
+    <% @owned_plant.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<h1>Add a plant to your garden</h1>
+
+<%= form_for( @owned_plant ) do |f| %>
+    <%= f.hidden_field :user_id %>
+
+    <%= f.datetime_field :seed_date %>
+
+    <%= f.collection_select(:plant_id, Plant.all, :id, :common_name )%>
+
+    <%= f.submit %>
+
+<% end %>
