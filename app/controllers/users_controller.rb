@@ -37,6 +37,11 @@ class UsersController < ApplicationController
         redirect_to @user
     end 
 
+    def destroy 
+        set_user
+        @user.delete
+    end 
+
     private 
 
     def set_user

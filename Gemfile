@@ -22,6 +22,12 @@ gem 'jbuilder', '~> 2.7'
 
  gem 'faker'
 
+ gem 'omniauth'
+
+ gem 'omniauth-apple'
+
+gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
+
  gem 'dotenv-rails', groups: [:development, :test]
 
 # Use Active Storage variant

@@ -1,0 +1,11 @@
+<h1>Bring a new plant into being</h1>
+
+<%= form_for( @plant ) do |f| %>
+    <%= f.label "Common name" %>
+    <%= f.text_field :common_name %>
+
+    <%= f.label "Scientific Name" %>
+    <%= f.text_field :scientific_name %>
+
+    <%= f.submit %>
+<% end %>

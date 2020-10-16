@@ -1,0 +1,14 @@
+<h1>What plant would you like to search?</h1>
+<%= form_tag( plants_path, :method => "get" ) do %>
+    <%= label_tag "search" %>
+    <%= text_field_tag :search %>
+    <%= submit_tag "Search" %>
+<% end %>
+
+<h1>Plants</h1>
+<% @plants.each do |p|%>
+    <ul>
+    <li><%= link_to "#{p.common_name} - #{p.scientific_name}", plant_path(p) %></li>
+    </ul>
+
+<% end%>
