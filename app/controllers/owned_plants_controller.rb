@@ -2,9 +2,7 @@ class OwnedPlantsController < ApplicationController
     before_action :set_user
 
     def new 
-        
         @owned_plant = @user.owned_plants.build
-        byebug
     end 
 
     def create 
@@ -15,6 +13,27 @@ class OwnedPlantsController < ApplicationController
         else 
             render 'owned_plant/new'
         end 
+    end 
+
+    def edit
+        byebug
+        @owned_plant = OwnedPlant.find(params[:id])
+    end 
+
+    def update
+        @owned_plant = OwnedPlant.find(params[:id])
+        if @owned_plant.update(owned_plants_params)
+            redirect_to user_path(current_user)
+        else 
+            render 'owned_plant/new'
+        end 
+
+    end 
+
+    def destroy
+        @owned_plant = OwnedPlant.find(params[:id])
+        @owned_plant.delete
+        redirect_to user_path(current_user)
     end 
 
     private 

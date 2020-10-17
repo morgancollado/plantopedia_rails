@@ -4,7 +4,11 @@
 <h3>Owned Plants</h3>
 <% @user.owned_plants.each do |p| %>
     <ul>
-    <li><%=link_to p.plant.common_name, plant_path(p) %></li>
+    <li><%=link_to p.plant.common_name, plant_path(p) %> - Date Seeded: <%= p.seed_date %> <%= link_to "Edit", edit_user_owned_plant_path(@user, p) %></li>
+    
     </ul>
 
 <% end %>
+
+<%= link_to "Add a plant to your collection", new_user_owned_plant_path(@user) %>
+

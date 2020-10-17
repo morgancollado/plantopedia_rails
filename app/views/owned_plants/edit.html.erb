@@ -1,0 +1,34 @@
+<% if @owned_plant.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@owned_plant.errors.count, "error") %>
+      prohibited you from saving:
+    </h2>
+
+    <ul>
+    <% @owned_plant.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<h1>Edit your ownership of  <%= @owned_plant.plant.common_name  %></h1>
+
+<%= form_for( @owned_plant ) do |f| %>
+    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :plant_id %>
+
+    <%= f.label "Seed Date" %>
+    <%= f.datetime_field :seed_date %>
+    <%= f.label "Death Date" %>
+    <%= f.datetime_field :death_date %>
+
+    <%= f.submit %>
+
+<% end %>
+
+<%= button_to "delete",  user_owned_plant_path(@owned_plant), method: :delete%>
+
+<%= link_to "Add a plant log",  new_user_owned_plant_plant_log_path(@owned_plant.user, @owned_plant)%>

@@ -1,0 +1,27 @@
+<% if @plant_log.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@plant_log.errors.count, "error") %>
+      prohibited you from saving:
+    </h2>
+
+    <ul>
+    <% @plant_log.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<h1>Create a log</h1>
+
+<%= form_for( @plant_log ) do |f| %>
+    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :owned_plant_id %>
+
+    <%= f.label "Content" %>
+    <%= f.text_area :content  %>
+
+    <%= f.submit %>
+<% end %>
