@@ -6,6 +6,6 @@ class User < ApplicationRecord
 
     validates :username, uniqueness: true
     validates :name, :username, :password, presence: true
-
+    
     accepts_nested_attributes_for :owned_plants, :plant_logs
 end

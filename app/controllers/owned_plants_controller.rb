@@ -18,7 +18,7 @@ class OwnedPlantsController < ApplicationController
     end 
 
     def edit
-        
+        byebug
         @owned_plant = OwnedPlant.find(params[:id])
     end 
 

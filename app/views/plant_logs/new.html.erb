@@ -18,12 +18,9 @@
 
 <%= form_for( @plant_log ) do |f| %>
     <%= f.hidden_field :user_id %>
-    <ul>
-    <%= f.fields for :owned_plants do |owned_plant| %>
-    <li><%= f.hidden_field :owned_plant_id %></li>
+    <%= f.fields_for :owned_plants do |op_form|%>
+        <%= op_form.hidden_field :owned_plant_id %>
     <% end%>
-
-    </ul>
 
     <%= f.label "Content" %>
     <%= f.text_area :content  %>

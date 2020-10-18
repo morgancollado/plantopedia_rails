@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.destroy_all
+OwnedPlant.destroy_all 
+PlantLog.destroy_all
+Plant.destroy_all
 require 'httparty'
 require 'faker'
 require 'byebug'
@@ -30,7 +34,7 @@ end
 
         name: Faker::Name.name,
         username: Faker::Games::Overwatch.unique.hero,
-        password_digest: Faker::String.random
+        password: "hello"
     )
 
 
@@ -47,9 +51,8 @@ end
 
 20.times do 
     PlantLog.create(
-        user_id:
-        User.all.sample.id,
-        plant_id: Plant.all.sample.id,
+        user_id: User.all.sample.id,
+        owned_plant_id: OwnedPlant.all.sample.id,
         content: Faker::Hipster.paragraph
 
     )
