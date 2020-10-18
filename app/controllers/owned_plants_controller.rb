@@ -2,7 +2,9 @@ class OwnedPlantsController < ApplicationController
     before_action :set_user
 
     def new 
+        
         @owned_plant = @user.owned_plants.build
+        byebug
     end 
 
     def create 

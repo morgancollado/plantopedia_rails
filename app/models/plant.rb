@@ -2,7 +2,7 @@ class Plant < ApplicationRecord
 
     has_many :users, through: :owned_plants
     has_many :owned_plants
-    has_many :plant_logs, through: :owned_plants
+    has_many :plant_logs
 
     validates :common_name, :scientific_name, uniqueness: true
 

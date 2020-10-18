@@ -1,14 +1,11 @@
 Rails.application.routes.draw do
   resources :plant_logs
   
-  resources :owned_plants
+  resources :owned_plants, only: [:new, :create]
 
   resources :users do 
-    resources :owned_plants do 
-      resources :plant_logs
-    end 
+    resources :owned_plants
   end 
-  
   resources :users, only: [:create, :show, :edit, :update]
   resources :plants
 
