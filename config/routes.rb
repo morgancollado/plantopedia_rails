@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   post "sessions", to: "sessions#create", as: "sessions"
 
   delete "sessions", to: "sessions#destroy", as: "logout"
-
+  
+  get 'auth/github', :as => 'github_auth'
+  
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

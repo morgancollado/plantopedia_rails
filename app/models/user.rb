@@ -5,7 +5,7 @@ class User < ApplicationRecord
     has_many :plant_logs
 
     validates :username, uniqueness: true
-    validates :name, :username, :password, presence: true
+    validates :name, :username, presence: true
     
     accepts_nested_attributes_for :owned_plants, :plant_logs
 end

@@ -29,4 +29,5 @@ class Plant < ApplicationRecord
            @plants = Plant.all
             end 
         end  
+        
 end

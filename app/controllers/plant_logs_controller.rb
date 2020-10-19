@@ -2,7 +2,8 @@ class PlantLogsController < ApplicationController
     before_action :set_user
 
     def new 
-        @plant_log = @user.plant_logs.build
+        @plant_log = @user.plant_logs.build({owned_plant_id: params[:owned_plant_id]})
+        byebug
     end 
 
     def create 
@@ -20,10 +21,6 @@ class PlantLogsController < ApplicationController
 
     def set_user
         @user = current_user 
-    end 
-
-    def set_plant
-        @plant = Plant.(params[:id])
     end 
 
     def plant_log_params
