@@ -32,3 +32,15 @@
 <%= button_to "delete",  user_owned_plant_path(@owned_plant), method: :delete%>
 
 <%= link_to "Add a plant log",  new_user_owned_plant_plant_log_path(@owned_plant.user, @owned_plant)%> 
+
+<% @owned_plant.plant_logs.each do |log| %>
+    <ul>
+    <li><%= link_to log.created_at, edit_user_owned_plant_plant_log_path(@owned_plant.user_id,@owned_plant, log) %>
+    <%= log.content %>
+    </li>
+    </ul>
+
+
+<% end %>
+
+<%= link_to "Back to all your plants", user_path(@owned_plant.user.id) %>

@@ -28,6 +28,9 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 
+gem 'omniauth-facebook'
+
+
  gem 'dotenv-rails', groups: [:development, :test]
 
 # Use Active Storage variant

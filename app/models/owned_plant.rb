@@ -7,5 +7,7 @@ class OwnedPlant < ApplicationRecord
 
     validates :user_id, :plant_id, :seed_date, presence: true
 
+    scope :alive, -> {where(death_date: nil)}
+
     
 end

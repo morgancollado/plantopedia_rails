@@ -142,6 +142,8 @@ GEM
     omniauth-apple (1.0.0)
       jwt
       omniauth-oauth2
+    omniauth-facebook (7.0.0)
+      omniauth-oauth2 (~> 1.2)
     omniauth-oauth2 (1.7.0)
       oauth2 (~> 1.4)
       omniauth (~> 1.9)
@@ -244,6 +246,7 @@ DEPENDENCIES
   listen (~> 3.2)
   omniauth
   omniauth-apple
+  omniauth-facebook
   omniauth-github!
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.4)
