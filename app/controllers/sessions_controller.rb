@@ -6,17 +6,9 @@ class SessionsController < ApplicationController
 
     def create 
         if request.env['omniauth.auth']	
-
-            oauth_email = request.env['omniauth.auth']['email']	
-             if @user = User.find_by(:email => oauth_email)	
-                 session[:user_id] = @user.id	
-             else	
-                 @user = User.create(:email => oauth_email, :password => SecureRandom.hex)	
-                 @user.save	
-                 session[:user_id] = @user.id	
- 
-                # redirect_to photographers_path(@user)	
-             end 
+            @user = User.find_or_create_by_omniauth(auth)
+            session[:user_id] = @user.id
+            redirect_to user_path(@user)
         else 
             @user = User.find_by(username: params[:username])
                 if @user && @user.authenticate(params[:password])
@@ -31,6 +23,12 @@ class SessionsController < ApplicationController
 
     def destroy 
         session.delete(:user_id)
+    end 
+
+    private 
+
+    def auth
+        request.env['omniauth.auth']
     end 
 
 end 

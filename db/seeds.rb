@@ -33,6 +33,7 @@ end
     User.create(
 
         name: Faker::Name.name,
+        email: Faker::Internet.unique.email,
         username: Faker::Games::Overwatch.unique.hero,
         password: "hello"
     )

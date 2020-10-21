@@ -4,7 +4,7 @@ class OwnedPlantsController < ApplicationController
     def new 
         
         @owned_plant = @user.owned_plants.build
-        byebug
+        
     end 
 
     def create 
@@ -13,7 +13,7 @@ class OwnedPlantsController < ApplicationController
         if @owned_plant.save
             redirect_to user_path(current_user)
         else 
-            render 'owned_plant/new'
+            render 'owned_plants/new'
         end 
     end 
 

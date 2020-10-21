@@ -11,8 +11,9 @@ class Plant < ApplicationRecord
     def self.search(search)
         
         if search
-       @plants = Plant.all.select {|p| p.common_name.include?(search) || p.scientific_name.include?(search)}
+       @plants = Plant.all.select {|p| p.common_name.include?(search) || p.scientific_name.include?(search) }
         if @plants == []
+            
         r = HTTParty.get(
             'https://trefle.io/api/v1/plants/search',
             query: { q: search,
@@ -29,5 +30,5 @@ class Plant < ApplicationRecord
            @plants = Plant.all
             end 
         end  
-        
+
 end
