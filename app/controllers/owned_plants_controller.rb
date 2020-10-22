@@ -1,15 +1,14 @@
 class OwnedPlantsController < ApplicationController
     before_action :set_user
+    before_action :set_plant, only: [:new, :create]
 
     def new 
-        
         @owned_plant = @user.owned_plants.build
-        
     end 
 
     def create 
         @owned_plant = current_user.owned_plants.build(owned_plants_params)
-
+        
         if @owned_plant.save
             redirect_to user_path(current_user)
         else 
@@ -28,7 +27,6 @@ class OwnedPlantsController < ApplicationController
         else 
             render 'owned_plant/new'
         end 
-
     end 
 
     def destroy
@@ -45,6 +43,12 @@ class OwnedPlantsController < ApplicationController
 
     def set_user
         @user = current_user
+    end 
+
+    def set_plant
+        if params[:plant_id]
+        @plant = Plant.find(params[:plant_id])
+        end 
     end 
 
 

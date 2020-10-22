@@ -30,6 +30,11 @@ gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 
 gem 'omniauth-facebook'
 
+gem 'bootstrap', '~> 5.0.0.alpha1'
+
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+
+
 
  gem 'dotenv-rails', groups: [:development, :test]
 

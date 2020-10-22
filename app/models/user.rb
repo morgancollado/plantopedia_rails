@@ -4,8 +4,8 @@ class User < ApplicationRecord
     has_many :owned_plants
     has_many :plant_logs
 
-    # validates :username, :email, uniqueness: true
-    # validates :name, :username, :email, presence: true
+    validates :username, :email, uniqueness: true
+    
     
     accepts_nested_attributes_for :owned_plants, :plant_logs
 

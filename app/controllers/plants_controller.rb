@@ -23,6 +23,7 @@ class PlantsController < ApplicationController
         
         @plants = Plant.search(params[:search])
         
+        
     end
 
     private 

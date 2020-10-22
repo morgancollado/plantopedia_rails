@@ -15,14 +15,14 @@
 <% end %>
 
 
-<h1>Add a plant to your garden</h1>
+<h1>Add <%= @plant.common_name %> to your garden</h1>
 
 <%= form_for( @owned_plant ) do |f| %>
     <%= f.hidden_field :user_id %>
 
     <%= f.datetime_field :seed_date %>
 
-    <%= f.collection_select(:plant_id, Plant.all, :id, :common_name )%>
+    <%= f.hidden_field :plant_id, :value => params[:plant_id]%>
 
     <%= f.submit %>
 
