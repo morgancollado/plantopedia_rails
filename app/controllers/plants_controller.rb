@@ -20,10 +20,7 @@ class PlantsController < ApplicationController
     end 
 
     def index
-        
         @plants = Plant.search(params[:search])
-        
-        
     end
 
     private 

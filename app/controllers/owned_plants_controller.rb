@@ -18,6 +18,9 @@ class OwnedPlantsController < ApplicationController
 
     def edit
         @owned_plant = OwnedPlant.find(params[:id])
+        if !logged_in? 
+            redirect_to login_path
+        end 
     end 
 
     def update

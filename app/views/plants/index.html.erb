@@ -8,8 +8,11 @@
 <h1>Plants</h1>
 <% @plants.each do |p|%>
     <ul>
+    <% if !p.nil? && p.id %>
     <li><%= link_to "#{p.common_name} - #{p.scientific_name}", plant_path(p) %></li>
     </ul>
+    <% end %>
+
 
 <% end%>
 

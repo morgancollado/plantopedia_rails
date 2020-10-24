@@ -10,7 +10,7 @@ class Plant < ApplicationRecord
     TREFLE_TOKEN = ENV["KEY"]
 
     def self.search(search)
-
+        
         plants = []
         
         if search

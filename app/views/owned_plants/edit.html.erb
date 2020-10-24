@@ -35,7 +35,7 @@
 
 <% @owned_plant.plant_logs.each do |log| %>
     <ul>
-    <li><%= link_to log.created_at, edit_user_owned_plant_plant_log_path(@owned_plant.user_id,@owned_plant, log) %>
+    <li><%= link_to log.created_at.strftime("Log date: %m/%d/%Y at %l:%M %p"), edit_user_owned_plant_plant_log_path(@owned_plant.user_id,@owned_plant, log) %>
     <%= log.content %>
     </li>
     </ul>
