@@ -16,10 +16,7 @@ class PlantLogsController < ApplicationController
     end 
 
     def edit
-        @plant_log = PlantLog.find(params[:id])
-        if @plant_log.user.id != current_user
-            redirect_to user_path(current_user)
-        end 
+        @plant_log = current_user.plant_logs.find(params[:id])
     end 
 
     def update 
