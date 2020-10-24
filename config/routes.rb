@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root 'welcome#home'
-  
+
   resources :plant_logs
   
   resources :owned_plants
@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   resources :plants do 
     resources :owned_plants
   end 
+
+  get "alive", to: "owned_plants#alive", as: "alive"
 
   resources :users, only: [:create, :show, :edit, :update]
   resources :plants

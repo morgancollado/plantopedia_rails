@@ -32,6 +32,10 @@ class OwnedPlantsController < ApplicationController
         end 
     end 
 
+    def alive 
+        @alive_plant = OwnedPlant.alive.where(user_id: @user.id)
+    end 
+
     def destroy
         @owned_plant = OwnedPlant.find(params[:id])
         @owned_plant.delete
