@@ -19,7 +19,7 @@
 <%= form_for( @plant_log ) do |f| %>   
     
     <%= f.hidden_field :owned_plant_id, :value => params[:owned_plant_id] %>
-    <% byebug%>
+    
 
     <%= f.label "Content" %>
     <%= f.text_area :content  %>
