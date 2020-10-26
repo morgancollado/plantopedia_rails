@@ -4,7 +4,7 @@
 <h3>Owned Plants</h3>
 <% @user.owned_plants.each do |p| %>
     <ul>
-    <li><%=link_to p.plant.common_name, plant_path(p) %> - <%= p.seed_date.strftime("Seeded on: %m/%d/%Y") %> <%= link_to "Show", edit_user_owned_plant_path(@user, p) %></li>
+    <li><%=link_to p.plant.common_name, plant_path(p.plant_id) %> - <%= p.seed_date.strftime("Seeded on: %m/%d/%Y") %> <%= link_to "Show", edit_user_owned_plant_path(@user, p) %></li>
     </ul>
 
 <% end %>
